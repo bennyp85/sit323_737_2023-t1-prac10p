@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-calculator",
+  "version": "1.0.0",
+  "description": "Calculator Application for Kubernetes",
+  "dependencies": {
+    "eslint": "^8.29.0"
+  },
+  "scripts": {
+    "lint": "eslint 'src/**/**.js'"
+  },
+  "author": "Benny T Pritchard",
+  "license": "ISC"
+}

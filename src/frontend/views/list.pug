@@ -1,0 +1,19 @@
+if calculations.length > 0
+    each calc in calculations
+        .card.my-3.col-12
+            .card-body
+                h5.card-title Database Id: #{calc.id}
+                h6.card-subtitle.mb-2.text-muted #{calc.timeAgo}
+                br
+                p.card-text
+                    br 
+                    | Number 1: #{calc.num1}
+                    br
+                    | Number 2: #{calc.num2}
+                    br
+                    | Operation: #{calc.operation}
+                    br
+                    | Result: #{calc.result}
+else
+    p.alert.alert-info(role='alert')
+        | No calculations are logged to the database yet.

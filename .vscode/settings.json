@@ -1,0 +1,9 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/main/docs-v1/content/en/schemas/v2beta18.json": [
+            "file:///c%3A/Users/benny/OneDrive/Documents/SIT323/sit323_737_2023-t1-prac10p/src/backend/skaffold.yaml",
+            "file:///c%3A/Users/benny/OneDrive/Documents/SIT323/sit323_737_2023-t1-prac10p/src/frontend/skaffold.yaml",
+            "file:///c%3A/Users/benny/OneDrive/Documents/SIT323/sit323_737_2023-t1-prac10p/skaffold.yaml"
+        ]
+    }
+}
