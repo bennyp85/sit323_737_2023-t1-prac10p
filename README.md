@@ -1,7 +1,7 @@
 # Node.js Calculator Web App
 This repository hosts a Calculator Web App, a cloud-native microservice-based application built with Node.js and Express. The app utilizes MongoDB as its database and is deployed on Google Kubernetes Engine (GKE).
 
-## #Overview
+## Overview
 The app is a simple calculator with a web-based interface. It can perform basic arithmetic operations and is able to create, read, update, and delete entries in the database.
 
 The architecture of the app consists of three services:
@@ -23,10 +23,10 @@ The Backend service performs the calculation or database operation and communica
 The response then follows the same path back to the user.
 
 ## Features
-### Basic Arithmetic Operations: The app supports addition, subtraction, multiplication, and division.
-### CRUD Operations: The app allows for creating, reading, updating, and deleting entries in the database.
-### Database ID: Each entry in the database is assigned a unique ID. This ID is used for updating or deleting the corresponding entry.
-### Non-Dynamic Page Updates: While the page does not update dynamically at the moment, a refresh view button is available to manually update the page after deleting or updating an entry.
+Basic Arithmetic Operations: The app supports addition, subtraction, multiplication, and division.
+RUD Operations: The app allows for creating, reading, updating, and deleting entries in the database.
+Database ID: Each entry in the database is assigned a unique ID. This ID is used for updating or deleting the corresponding entry.
+Non-Dynamic Page Updates: While the page does not update dynamically at the moment, a refresh view button is available to manually update the page after deleting or updating an entry.
 
-## #Deployment
+## Deployment
 The app is currently deployed on Google Kubernetes Engine (GKE) with an exposed external endpoint. To assist with development, scaffold.yaml files are included in the repository.
