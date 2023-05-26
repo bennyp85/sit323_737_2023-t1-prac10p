@@ -19,3 +19,42 @@ form.form-inline(action="/post", method="POST")
             option(value="mult") Multiply
             option(value="div") Divide
     button.btn.btn-primary.mb-2(type="submit") Send to Database
+
+form.form-inline(action="/delete", method="POST")
+    input(type="hidden", name="_method", value="DELETE")
+    label.sr-only(for="id") Database Id
+    .input-group.mb-2.mr-sm-2
+        .input-group-prepend
+            .input-group-text Database Id
+        input#idDelete.form-control(type="text", name="id", required="")
+    button.btn.btn-primary.mb-2(type="submit") Delete from Database
+    a.btn.btn-secondary.mb-2(href="/") Refresh View
+
+form.form-inline(action="/put", method="POST")
+    input(type="hidden", name="_method", value="PUT")
+    label.sr-only(for="id") Database Id
+    .input-group.mb-2.mr-sm-2
+        .input-group-prepend
+            .input-group-text Database Id
+        input#idUpdate.form-control(type="text", name="id", required="")
+    label.sr-only(for="num1") Number 1
+    .input-group.mb-2.mr-sm-2
+        .input-group-prepend
+            .input-group-text Number 1
+        input#num1Update.form-control(type="number", name="num1", required="")
+    label.sr-only(for="num2") Number 2
+    .input-group.mb-2.mr-sm-2
+        .input-group-prepend
+            .input-group-text Number 2
+        input#num2Update.form-control(type="number", name="num2", required="")
+    label.sr-only(for="operation") Operation
+    .input-group.mb-2.mr-sm-2
+        .input-group-prepend
+            .input-group-text Operation
+        select#operationUpdate.form-control(name="operation", required="")
+            option(value="add") Add
+            option(value="subtract") Subtract
+            option(value="mult") Multiply
+            option(value="div") Divide
+    button.btn.btn-primary.mb-2(type="submit") Update Database
+    a.btn.btn-secondary.mb-2(href="/") Refresh View

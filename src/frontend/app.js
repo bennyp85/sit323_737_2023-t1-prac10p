@@ -83,3 +83,66 @@ if (isNaN(num1) || isNaN(num2)) {
        console.error('error: ' + error)
    })
  });
+
+ // Handles DELETE request to /delete
+router.post('/delete', (req, res) => {
+    console.log(`received request: ${req.method} ${req.url}`)
+
+    // validate request
+    const { id } = req.body;
+    if (!id) {
+      res.status(400).send("id must be defined");
+      return;
+    }
+  
+    // send the delete request to the backend and redirect to the homepage
+    console.log(`deleting from ${BACKEND_URI} - id: ${id}`)
+    axios.delete(BACKEND_URI, {
+      data: {
+        id: id
+      }
+    }).then(response => {
+        console.log(`response from ${BACKEND_URI}` + response.status)
+        res.redirect('/')
+    }).catch(error => {
+        console.error('error: ' + error)
+    })
+  } 
+);
+
+// Handles PUT request to /put
+router.post('/put', (req, res) => {
+    console.log(`received request: ${req.method} ${req.url}`)
+
+    // validate request
+    const { id, num1, num2, operation } = req.body;
+    if (!id) {
+      res.status(400).send("id must be defined");
+      return;
+    }
+    if (isNaN(num1) || isNaN(num2)) {
+      res.status(400).send("num1 and num2 must be numbers");
+      return;
+    }
+    
+    const allowedOperations = ["add", "subtract", "mult", "div"];
+    if (!allowedOperations.includes(operation)) {
+      res.status(400).send("operation must be add, subtract, mult, or div");
+      return;
+    }
+  
+    // send the update request to the backend and redirect to the homepage
+    console.log(`updating ${BACKEND_URI} - id: ${id} num1: ${num1} num2: ${num2} operation: ${operation}`)
+    axios.put(BACKEND_URI, {
+      id: id,
+      num1: num1,
+      num2: num2,
+      operation: operation,
+    }).then(response => {
+        console.log(`response from ${BACKEND_URI}` + response.status)
+        res.redirect('/')
+    }).catch(error => {
+        console.error('error: ' + error)
+    })
+  }
+);

@@ -59,28 +59,57 @@ const construct = (params) => {
     return calculation;
 };
 
+// Deletes calculation
+const deleteCalculation = (id) => {
+    console.log("deleting calculation...")
+    calculationModel.deleteOne({ _id: id }, (err) => {
+        if (err) { throw err }
+    })
+};
 
-const save = (calculation) => {
-    console.log("saving calculation...")
+// Updates calculation
+const updateCalculation = (id, params) => {
+    console.log("updating calculation...")
+    let num1 = Number(params.num1);
+    let num2 = Number(params.num2);
+    const operation = params.operation;
+    let result;
+    switch (operation) {
+        case 'add':
+            result = num1 + num2;
+            break;
+        case 'subtract':
+            result = num1 - num2;
+            break;
+        case 'mult':
+            result = num1 * num2;
+            break;
+        case 'div':
+            result = num1 / num2;
+            break;
+        default:
+            throw new Error('Invalid operation');
+    }
+    calculationModel.updateOne({ _id: id }, { num1: num1, num2: num2, operation: operation, result: result }, (err) => {
+        if (err) { throw err }
+    })
+};
+
+  
+// Constructs and saves calculation
+const createCalculation = (params) => {
+    console.log("creating calculation...")
+    const calculation = construct(params);
     calculation.save((err) => {
         if (err) { throw err }
     })
 };
 
-// Constructs and saves calculation
-const create = (params) => {
-    try {
-        const calculation = construct(params)
-        const validationError = calculation.validateSync()
-        if (validationError) { throw validationError }
-        save(calculation)
-    } catch (error) {
-        throw error
-    }
-}
 
 module.exports = {
-    create: create,
     calculationModel: calculationModel,
-    connectToMongoDB: connectToMongoDB
+    connectToMongoDB: connectToMongoDB,
+    createCalculation: createCalculation,
+    deleteCalculation: deleteCalculation,
+    updateCalculation: updateCalculation
 }
